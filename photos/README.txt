@@ -9,6 +9,10 @@
 - hanjia-ratatouille-tainan.jpg
 - fengmentang-xueguo-shanghai.jpg
 - fengmentang-golden-gream-shanghai.jpg
+- fengmentang-brandy-alexander-shanghai.jpg
+- kkhomebar-freiheit-shanghai.jpg
+- kkhomebar-matcha-gin-tonic-shanghai.jpg
+- kkhomebar-shochu-yokohama-shanghai.jpg
 - vuslat-frankincense-melon-shanghai.jpg
 - linein-06-shanghai.jpg
 - linein-10-shanghai.jpg
