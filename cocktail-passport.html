@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>夜走 · Cocktail Passport</title>
+  <style>
+    .photo img{position:absolute;z-index:1;width:100%;height:100%;object-fit:cover;inset:0}
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+    :root{--ink:#1f211c;--paper:#eee9df;--cream:#f7f3eb;--line:#d7d0c3;--olive:#69705a;--wine:#7e342b;--gold:#b99157;--muted:#78786f}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:'Noto Serif SC',serif}.shell{max-width:1440px;margin:auto;padding:28px 42px 44px}.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--ink);padding-bottom:22px}.eyebrow,.micro{font:11px 'DM Mono',monospace;letter-spacing:.11em;text-transform:uppercase}.brand h1{font:600 clamp(34px,5vw,70px)/1 'Playfair Display','Noto Serif SC',serif;letter-spacing:-.045em;margin:12px 0 0}.brand h1 span{font-family:'Noto Serif SC',serif;font-size:.48em;letter-spacing:.02em;margin-left:14px}.stats{display:flex;gap:26px}.stat{border-left:1px solid var(--line);padding-left:13px}.stat b{display:block;font:600 28px 'Playfair Display',serif}.stat span{font:10px 'DM Mono',monospace;color:var(--muted);letter-spacing:.06em}.views{display:flex;gap:7px;border-bottom:1px solid var(--ink);padding-bottom:14px;margin-top:28px}.tab{background:none;border:0;padding:8px 18px;color:var(--muted);font:12px 'DM Mono',monospace;cursor:pointer;letter-spacing:.06em;border-radius:2px}.tab.active{background:var(--ink);color:var(--cream)}.panel{display:none;padding-top:28px}.panel.active{display:block}.map-layout{display:grid;grid-template-columns:minmax(0,1fr) 286px;gap:25px}.map{min-height:570px;position:relative;overflow:hidden;background:#cfd8d0;border:1px solid #b9c2bb}.map:before{content:'';position:absolute;inset:0;opacity:.55;background:linear-gradient(30deg,transparent 49%,#b9c5bc 50%,transparent 51%) 0 0/100px 80px,linear-gradient(120deg,transparent 49%,#b9c5bc 50%,transparent 51%) 0 0/140px 110px}.land{position:absolute;background:#e8e3d4;opacity:.85;filter:drop-shadow(0 1px 0 #afb8ae)}.l1{width:38%;height:34%;left:9%;top:13%;clip-path:polygon(0 10%,30% 0,75% 8%,100% 38%,77% 58%,60% 100%,30% 80%,20% 50%,0 42%)}.l2{width:20%;height:44%;left:38%;top:43%;clip-path:polygon(32% 0,68% 7%,100% 34%,73% 70%,48% 100%,22% 77%,0 42%)}.l3{width:45%;height:34%;right:5%;top:14%;clip-path:polygon(0 25%,18% 0,47% 6%,65% 27%,100% 23%,95% 64%,72% 82%,43% 62%,25% 100%,4% 78%)}.l4{width:16%;height:26%;right:18%;bottom:9%;clip-path:polygon(30% 0,100% 12%,76% 100%,0 79%)}.pin{position:absolute;width:18px;height:18px;border:2px solid var(--cream);background:var(--wine);border-radius:50% 50% 50% 0;transform:rotate(-45deg);cursor:pointer;box-shadow:0 2px 5px #28312c}.pin:after{content:'';position:absolute;width:5px;height:5px;background:var(--cream);border-radius:50%;left:4.5px;top:4.5px}.pin.active{background:var(--gold);transform:rotate(-45deg) scale(1.35)}.map-note{position:absolute;bottom:20px;left:20px;background:rgba(247,243,235,.9);padding:12px 15px;font-size:12px;line-height:1.7}.sidecard{background:var(--cream);border:1px solid var(--line);padding:21px;align-self:start}.sidecard .drink{font:500 30px/1.08 'Playfair Display',serif;margin:11px 0 15px}.sidecard .bar{font-size:14px}.sidecard .taste{border-top:1px solid var(--line);margin-top:18px;padding-top:16px;line-height:1.75;font-size:13px;color:#484942}.chart-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}.chart-back{display:none;background:none;border:1px solid var(--gold);color:var(--gold);font:11px 'DM Mono',monospace;letter-spacing:.06em;padding:6px 14px;cursor:pointer;border-radius:2px}.chart-title{font:11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.chart-bars{display:flex;align-items:flex-end;gap:5px;height:240px;padding:10px 0;border-bottom:1px solid var(--line)}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;background:none;border:0;cursor:pointer;padding:0;min-width:0}.bar-col.empty{cursor:default}.bar-val{font:10px 'DM Mono',monospace;color:var(--gold);margin-bottom:4px;min-height:12px}.bar-fill{width:100%;background:var(--gold);border-radius:3px 3px 0 0;min-height:2px;transition:opacity .15s}.bar-col:hover:not(.empty) .bar-fill{opacity:.7}.bar-col.empty .bar-fill{background:var(--line);opacity:.4}.bar-label{font:9px 'DM Mono',monospace;color:var(--muted);margin-top:6px;white-space:nowrap}.chart-daylist{margin-top:28px}.day-block{margin:0 0 24px}.day-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding:16px 0 10px}.day-head .date{font:11px 'DM Mono',monospace;color:var(--wine)}.day-head .day-cities{font:11px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.day-items{display:flex;flex-direction:column;gap:12px}.day-item{padding-left:19px;border-left:3px solid var(--gold);cursor:pointer}.day-item .name{font:500 19px 'Playfair Display',serif}.day-item .bar{font:13px 'Noto Serif SC',serif;margin-left:8px;color:var(--muted)}.day-item p{font-size:13px;line-height:1.6;margin:4px 0 0;color:#53554d}.gallery{columns:3;column-gap:17px}.card{break-inside:avoid;background:var(--cream);border:1px solid var(--line);margin:0 0 17px;cursor:pointer}.photo{height:210px;position:relative;overflow:hidden;background:var(--photo,#615343)}.photo:before{content:'';position:absolute;width:106px;height:106px;border:3px solid rgba(255,255,255,.48);border-radius:50%;left:50%;top:52%;transform:translate(-50%,-50%);box-shadow:inset 0 0 0 20px rgba(255,255,255,.08)}.photo:after{content:'';position:absolute;width:4px;height:95px;background:rgba(255,255,255,.55);left:56%;top:0;transform:rotate(-28deg);transform-origin:top}.photo.short{height:145px}.card-text{padding:15px}.card h2{font:500 27px/1 'Playfair Display',serif;margin:7px 0}.card p{font-size:12px;line-height:1.7;margin:8px 0 0;color:#55564e}.city{font:10px 'DM Mono',monospace;color:var(--wine);letter-spacing:.05em}.footer{margin-top:36px;border-top:1px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;color:var(--muted);font:10px 'DM Mono',monospace}.empty{font-size:13px;color:var(--muted)}@media(max-width:760px){.shell{padding:20px}.top{gap:15px;flex-wrap:wrap}.map-layout{grid-template-columns:1fr}.stats{gap:15px}.gallery{columns:1}.map{min-height:390px}.sidecard{margin-top:0}.day-head{gap:8px 12px}.brand h1 span{display:block;margin:8px 0 0}.footer{gap:12px}.tab{padding:8px 12px}}
+    /* 银座商务酒吧：深炭黑、胡桃木与黄铜 */
+    :root{--ink:#e8dfcf;--paper:#11110f;--cream:#1d1b17;--line:#514839;--olive:#b59a70;--wine:#a8402f;--gold:#d0aa68;--muted:#a79d8d}
+    body{background:radial-gradient(ellipse at 75% 5%,#302719 0%,#11110f 43%);color:var(--ink)}
+    .shell{max-width:1320px;padding:34px 50px 44px}.top{border-color:#83745c;position:relative}.top:after{content:'';position:absolute;bottom:-1px;left:0;width:112px;border-bottom:3px solid var(--gold)}
+    .brand h1{letter-spacing:-.025em}.brand h1 span{color:var(--gold);font-weight:400}.eyebrow,.micro{color:#bca77e}
+    .stat{border-color:#665944}.stat b{color:var(--gold)}.stat span{color:var(--muted)}
+    .views{margin:0;border:0;padding:0;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:0;background:#181613;border-bottom:1px solid #776649}.views:before{content:'ARCHIVE  /  VIEWS';display:flex;align-items:center;padding:0 23px;font:11px 'DM Mono',monospace;letter-spacing:.18em;color:var(--gold);border-right:1px solid #514839}.tab{border-radius:0;padding:21px 14px;background:transparent;color:#b4a995;border-right:1px solid #514839;font:12px 'DM Mono',monospace;letter-spacing:.12em;position:relative}.tab:hover{color:var(--gold);background:#242019}.tab.active{background:#2a251d;color:#f1dfb7}.tab.active:after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:2px;background:var(--gold)}
+    .panel{padding-top:30px}.map-layout{grid-template-columns:minmax(0,1fr) 315px;gap:18px}.map{background:#242722;border-color:#7c715d;min-height:550px}.map:before{opacity:.32}.land{background:#8d8979;opacity:.66}.pin{border-color:#231e16;background:var(--wine);box-shadow:0 2px 8px #000}.pin:after{background:var(--gold)}.map-note{background:rgba(17,17,15,.88);color:#d1c2aa;border-left:2px solid var(--gold)}.sidecard{background:#1b1915;border-color:#675b48;box-shadow:inset 0 2px 0 var(--gold);padding:25px}.sidecard .drink{color:#f0d9ab}.sidecard .bar{color:#c7bba6}.sidecard .taste{border-color:#514839;color:#c1b7a7}
+    .year{color:#d6bb89;border-bottom:1px solid #665944;padding-bottom:5px}.day-head{border-color:#514839}.day-head .date{color:#caa568}.day-head .day-cities{color:#a79d8d}.day-item{border-color:var(--wine)}.day-item .name{color:#ead7b3}.day-item .bar{color:#beb3a3}.day-item p{color:#beb3a3}
+    .gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.card{margin:0;background:#1b1915;border-color:#514839;box-shadow:0 12px 20px rgba(0,0,0,.18)}.card:hover{transform:translateY(-3px);border-color:#b69762}.card h2{font-size:22px;color:#eed9ae}.card p{color:#bcb09e}.card-text{padding:13px}.photo,.photo.short{height:auto;aspect-ratio:3/4;background:#0d0c0a;display:grid;place-items:center}.photo:before,.photo:after{display:none}.photo:not(:has(img))::before{content:'照片待添加';display:block;position:static;transform:none;width:auto;height:auto;border:0;box-shadow:none;border-radius:0;font:10px 'DM Mono',monospace;letter-spacing:.18em;color:#766d5e}.photo img{object-fit:contain;filter:saturate(.82) contrast(1.05)}.drink-type{margin-top:10px;color:#cba866;font:10px 'DM Mono',monospace;letter-spacing:.1em}.city{color:#cca869}.footer{border-color:#83745c;color:#aa9d8a}
+    @media(max-width:760px){.shell{padding:21px}.views{grid-template-columns:1fr 1fr}.views:before{grid-column:1/-1;padding:16px;border-bottom:1px solid #514839}.tab{padding:16px 6px}.tab:last-child{border-right:0}.tab.active:after{left:8px;right:8px}.stats{flex-wrap:wrap}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card h2{font-size:19px}.chart-bars{height:180px;gap:3px}.bar-val{font-size:8px}.bar-label{font-size:7px}}
+  </style>
+</head>
+<body><main class="shell">
+  <header class="top"><div class="brand"><div class="eyebrow">A personal drinking archive · since 2024</div><h1>夜走</h1></div><div class="stats"><div class="stat"><b id="drinkCount">00</b><span>COCKTAILS</span></div><div class="stat"><b id="cityCount">00</b><span>CITIES</span></div><div class="stat"><b>2024—</b><span>THE JOURNEY</span></div></div></header>
+  <nav class="views" aria-label="档案视图"><button class="tab" data-view="map">01　地图</button><button class="tab" data-view="timeline">02　记录</button><button class="tab active" data-view="gallery">03　相册</button></nav>
+  <section class="panel" id="map"><div class="map-layout"><div class="map"><i class="land l1"></i><i class="land l2"></i><i class="land l3"></i><i class="land l4"></i><div class="map-note micro">点击坐标，重温一杯酒<br><span id="mapLabel">TOKYO · JAPAN</span></div><div id="pins"></div></div><aside class="sidecard" id="feature"></aside></div></section>
+  <section class="panel" id="timeline"><div class="chart-head"><button class="chart-back" id="chartBack">← 返回</button><div class="chart-title" id="chartTitle"></div></div><div class="chart-bars" id="chartBars"></div><div class="chart-daylist" id="chartDayList"></div></section>
+  <section class="panel active" id="gallery"><div class="gallery" id="galleryList"></div></section>
+  <footer class="footer"><span>DRINK SLOWLY · REMEMBER DEEPLY</span><span>YOUR PERSONAL COCKTAIL ATLAS</span></footer>
+</main>
+<script>
+// 在这里增添你的每一杯酒：坐标 x/y 为地图上的百分比位置。
+const drinks=[
+ {bar:'Vuslat',name:'特调-乳香与蜜瓜',city:'上海，中国',date:'2026.08.05',year:2026,taste:'私房菜鸡尾酒版，不要轻易去特调店',x:70.5,y:44.7,color:'#d9a83e',size:'',photo:'photos/vuslat-frankincense-melon-shanghai.jpg'},
+ {bar:'Line in',name:'06',city:'上海，中国',date:'2026.08.05',year:2026,taste:'香蕉黄油面包万岁！但为什么还是长饮？',x:70.2,y:44.3,color:'#d9c26a',size:'',photo:'photos/linein-06-shanghai.jpg'},
+ {bar:'Line in',name:'10',city:'上海，中国',date:'2026.08.05',year:2026,taste:'被葡萄醋和绿豆蔻暴打',x:69.9,y:44.6,color:'#7a3f52',size:'',photo:'photos/linein-10-shanghai.jpg'},
+ {bar:'Line in',name:'01',city:'上海，中国',date:'2026.08.05',year:2026,taste:'清！爽！美！',x:69.6,y:44.9,color:'#8ac2a3',size:'',photo:'photos/linein-01-shanghai.jpg'},
+ {bar:'丰饶岛',name:'敖鲁古雅',city:'新疆阿勒泰，中国',date:'2026.08.03',year:2026,taste:'书很好看',x:22,y:10,color:'#8a6f4a',size:'',photo:'photos/fengraodao-aoluguya-altay.jpg'},
+ {bar:'丰饶岛',name:'SAMO',city:'新疆阿勒泰，中国',date:'2026.08.03',year:2026,taste:'干马天尼兑椰子水，折射光够抽象',x:21.5,y:10.5,color:'#d9e0c9',size:'',photo:'photos/fengraodao-samo-altay.jpg'},
+ {bar:'丰饶岛',name:'不可战胜的夏天',city:'新疆阿勒泰，中国',date:'2026.08.03',year:2026,taste:'纪梵与梅果',x:22.5,y:9.5,color:'#7a4a6a',size:'',photo:'photos/fengraodao-invincible-summer-altay.jpg'},
+ {bar:'Penicillin',name:'CHICKEN-COFFEE',city:'上海，中国',date:'2026.07.29',year:2026,taste:'怀疑调酒师是在喝醉的时候创作的但我没有证据',x:70.9,y:44.7,color:'#5a3f2e',size:'',photo:'photos/penicillin-sh-chicken-coffee-shanghai.jpg'},
+ {bar:'Penicillin',name:'One Penicillin, One Tree',city:'上海，中国',date:'2026.07.29',year:2026,taste:'批判一点其实是草莓味的反酸',x:70.6,y:44.4,color:'#c2597a',size:'',photo:'photos/penicillin-sh-one-tree-shanghai.jpg'},
+ {bar:'Good Afternoon',name:'Suze琴雷',city:'上海，中国',date:'2026.07.29',year:2026,taste:'第二次感受Suze魅力，小鹿君不在，配图只是酒水品相参考',x:69.7,y:44.2,color:'#c9a052',size:'',photo:'photos/good-afternoon-suze-rickey-shanghai.jpg'},
+ {bar:'Good Afternoon',name:'佚名',city:'上海，中国',date:'2026.07.29',year:2026,taste:'埃及来的但是我觉得就是传教士的堕落，配图只是酒水品相参考',x:69.4,y:44.5,color:'#5f7a52',size:'',photo:'photos/good-afternoon-unknown-shanghai.jpg'},
+ {bar:'丰门堂',name:'雪国（偏酸版）',city:'上海，中国',date:'2026.07.23',year:2026,taste:'超越Gimlet目前在我心目中排名第一',x:70.1,y:44.5,color:'#c9d2e0',size:'',photo:'photos/fengmentang-xueguo-shanghai.jpg'},
+ {bar:'丰门堂',name:'Golden Gream',city:'上海，中国',date:'2026.07.23',year:2026,taste:'第二次感受加里安奴魅力',x:69.9,y:44.3,color:'#d9c26a',size:'',photo:'photos/fengmentang-golden-gream-shanghai.jpg'},
+ {bar:'bar minus',name:'#？本人自带菠萝',city:'上海，中国',date:'2026.07.20',year:2026,taste:'如何又免加工费获得切好的菠萝又免费喝一杯酒，配图只是环境和杯子参考',x:70.1,y:44.9,color:'#e0b23e',size:'',photo:'photos/bar-minus-pineapple-shanghai.jpg'},
+ {bar:'bar minus',name:'#05',city:'上海，中国',date:'2026.07.20',year:2026,taste:'草莓乳酸菌',x:69.8,y:44.6,color:'#c9556a',size:'',photo:'photos/bar-minus-no05-shanghai.jpg'},
+ {bar:'Yoka Balance',name:'水蜜桃Martini',city:'上海，中国',date:'2026.07.20',year:2026,taste:'此生不喝水果Martini，又喝不出酒本身味道又不如小甜水好入口，配图只是酒水品相参考',x:71,y:44.3,color:'#e0a3a3',size:'',photo:'photos/yoka-peach-martini-shanghai.jpg'},
+ {bar:'Yoka Balance',name:'廊酒特调',city:'上海，中国',date:'2026.07.20',year:2026,taste:'我怀疑他在用纸飞机糊弄我但我没有证据，配图只是酒水品相参考',x:70.7,y:44.6,color:'#c9a052',size:'',photo:'photos/yoka-corridor-special-shanghai.jpg'},
+ {bar:'Yoka Balance',name:'Flip',city:'上海，中国',date:'2026.07.20',year:2026,taste:'第一次感受加里安奴魅力，Alexander + Golden Cadillac，配图只是酒水品相参考',x:71.3,y:44,color:'#d9c26a',size:'',photo:'photos/yoka-flip-galliano-shanghai.jpg'},
+ {bar:'Yoka Balance',name:'Snow Ball',city:'上海，中国',date:'2026.07.20',year:2026,taste:'蛋黄酒+雪碧？，配图只是酒水品相参考',x:70.4,y:43.8,color:'#e0d9a3',size:'',photo:'photos/yoka-snow-ball-shanghai.jpg'},
+ {bar:'Yoka Balance',name:'Yuzu Yuzu',city:'上海，中国',date:'2026.07.20',year:2026,taste:'第一次感受Suze魅力',x:71.6,y:43.6,color:'#c9d24a',size:'',photo:'photos/yoka-yuzu-yuzu-shanghai.jpg'},
+ {bar:'obsession%',name:'佚名',city:'江苏苏州，中国',date:'2026.07.18',year:2026,taste:'佚味，配图只是环境参考因为我什么都不记得了',x:72.8,y:41.3,color:'#8a8a8a',size:'',photo:'photos/obsession-unknown-suzhou.jpg'},
+ {bar:'obsession%',name:'玛格丽特披萨',city:'江苏苏州，中国',date:'2026.07.18',year:2026,taste:'时而抽烟时而抽薯条',x:72.6,y:41.6,color:'#c9752e',size:'',photo:'photos/obsession-margherita-pizza-suzhou.jpg'},
+ {bar:'Demiurge',name:'佚名',city:'江苏苏州，中国',date:'2026.07.18',year:2026,taste:'落汤鸡获得撒汤，但我不知道您这是怎么了在经典酒吧不点经典',x:71.9,y:41.4,color:'#a13c2e',size:'',photo:'photos/demiurge-unknown-suzhou.jpg'},
+ {bar:'Drinking Manner',name:'特调-看中了一个杯子',city:'江苏苏州，中国',date:'2026.07.18',year:2026,taste:'有被惊艳到的烟熏tiki，配图只是杯子参考',x:71.6,y:42.1,color:'#8a5a32',size:'',photo:'photos/drinkingmanner-tiki-cup-suzhou.jpg'},
+ {bar:'Drinking Manner',name:'少女的私酿',city:'江苏苏州，中国',date:'2026.07.18',year:2026,taste:'草莓金酒酸怎么可能难喝，配图只是酒水品相参考',x:71.3,y:42.4,color:'#c9556a',size:'',photo:'photos/drinkingmanner-shaonvsiniang-suzhou.jpg'},
+ {bar:'project 7（一楼）',name:'Pina Colada',city:'江苏苏州，中国',date:'2026.07.17',year:2026,taste:'澄清版但是忘了去二楼',x:72.3,y:42.3,color:'#d9c26a',size:'',photo:'photos/project7-pina-colada-suzhou.jpg'},
+ {bar:'Sleeping Dog',name:'特调-抹茶酸',city:'江苏苏州，中国',date:'2026.07.17',year:2026,taste:'不要轻易去特调店，配图只是环境参考',x:71.7,y:42.6,color:'#8a9a5a',size:'',photo:'photos/sleepingdog-matcha-sour-suzhou.jpg'},
+ {bar:'kidsmo',name:'佚名',city:'江苏苏州，中国',date:'2026.07.17',year:2026,taste:'完全遗忘只记得是奶昔冰沙，配图只是环境参考',x:72,y:42,color:'#d9c9a3',size:'',photo:'photos/kidsmo-unknown-suzhou.jpg'},
+ {bar:'黎li',name:'玫瑰天竺葵Gin Tonic',city:'江苏苏州，中国',date:'2026.07.17',year:2026,taste:'88一杯的肥皂水，但小飞机场值回酒钱',x:71.5,y:41.8,color:'#c9556a',size:'',photo:'photos/lili-rose-geranium-gt-suzhou.jpg'},
+ {bar:'ABA Whisky Bar',name:'发条橙',city:'上海，中国',date:'2026.07.15',year:2026,taste:'烈得很有门槛',x:69.9,y:44.9,color:'#c9752e',size:'',photo:'photos/aba-clockwork-orange-shanghai.jpg'},
+ {bar:'Bar No.3',name:'Spanish Virgin',city:'上海，中国',date:'2026.07.15',year:2026,taste:'兑水的香水，保守了，员工面早有耳闻但平平无奇',x:70.3,y:45.1,color:'#d9a3b8',size:'',photo:'photos/barno3-spanish-virgin-shanghai.jpg'},
+ {bar:'CJC',name:'斑斓',city:'上海，中国',date:'2026.07.09',year:2026,taste:'念念不忘必有回响',x:69.6,y:44.8,color:'#7a9a4a',size:'',photo:'photos/cjc-pandan-2-shanghai.jpg'},
+ {bar:'Barules',name:'特调-开心果乳酪巴斯克',city:'上海，中国',date:'2026.07.09',year:2026,taste:'不为别的只为但丁而重返，配图只是酒水品相参考',x:70.7,y:44.9,color:'#d9c26a',size:'',photo:'photos/barules-pistachio-basque-2-shanghai.jpg'},
+ {bar:'CJC',name:'抹茶苦瓜',city:'上海，中国',date:'2026.07.09',year:2026,taste:'看到抹茶就直接点，配图只是氛围参考',x:69.3,y:44.5,color:'#8a9a5a',size:'',photo:'photos/cjc-matcha-bittermelon-shanghai.jpg'},
+ {bar:'Reply',name:'#96',city:'上海，中国',date:'2026.07.09',year:2026,taste:'变态版烤西瓜Negroni',x:71.1,y:44.7,color:'#a13c2e',size:'',photo:'photos/reply-no96-shanghai.jpg'},
+ {bar:'Barules',name:'佚名',city:'上海，中国',date:'2026.07.09',year:2026,taste:'苦艾版grasshopper，走过路过不要错过',x:70.4,y:45,color:'#5a8a5a',size:'',photo:'photos/barules-unknown-grasshopper-shanghai.jpg'},
+ {bar:'丰门堂',name:'Bee\'s Knee（灰烬同款）',city:'上海，中国',date:'2026.07.08',year:2026,taste:'刻舟求剑的来了',x:70.2,y:44.6,color:'#d9b56a',size:'',photo:'photos/fengmentang-bees-knee-shanghai.jpg'},
+ {bar:'丰门堂',name:'Grasshopper',city:'上海，中国',date:'2026.07.08',year:2026,taste:'惊为天人的薄荷巧克力',x:69.8,y:44.4,color:'#5a8a5a',size:'',photo:'photos/fengmentang-grasshopper-shanghai.jpg'},
+ {bar:'十石Sodam',name:'芒果糯米马天尼',city:'上海，中国',date:'2026.07.08',year:2026,taste:'十石我知道你和宝物是什么关系',x:70.9,y:44.1,color:'#d9a83e',size:'',photo:'photos/sodam-mango-sticky-rice-martini-shanghai.jpg'},
+ {bar:'Jigger',name:'三姜撞奶',city:'上海，中国',date:'2026.07.02',year:2026,taste:'Roy不在',x:70.3,y:43.8,color:'#e0d9c0',size:'',photo:'photos/jigger-three-ginger-milk-shanghai.jpg'},
+ {bar:'ToT',name:'芋泥',city:'上海，中国',date:'2026.07.02',year:2026,taste:'芋泥冰沙和烤棉花糖',x:69.9,y:43.5,color:'#8a6f9a',size:'',photo:'photos/tot-taro-shanghai.jpg'},
+ {bar:'zoom inn',name:'特调',city:'上海，中国',date:'2026.07.02',year:2026,taste:'类纸飞机像秋天',x:70.6,y:44,color:'#c9752e',size:'',photo:'photos/zoom-inn-special-shanghai.jpg'},
+ {bar:'Cosmos',name:'#7',city:'上海，中国',date:'2026.07.02',year:2026,taste:'不是很好喝的皮斯科酸',x:69.2,y:43.9,color:'#c9a83e',size:'',photo:'photos/cosmos-no7-shanghai.jpg'},
+ {bar:'bar minus',name:'#20',city:'上海，中国',date:'2026.06.29',year:2026,taste:'完全不记得第二杯喝了什么但是喝了第二杯',x:69.7,y:44.2,color:'#8a8a8a',size:'',photo:'photos/bar-minus-no20-shanghai.jpg'},
+ {bar:'bar minus',name:'#07 Lite Green Grasshopper',city:'上海，中国',date:'2026.06.29',year:2026,taste:'看到抹茶奶盖直接点就好了',x:70,y:44.3,color:'#7a9a5a',size:'',photo:'photos/bar-minus-no07-grasshopper-shanghai.jpg'},
+ {bar:'looper by ounce',name:'李香兰',city:'上海，中国',date:'2026.06.29',year:2026,taste:'酸香平衡像沙棘汁',x:69.4,y:44.6,color:'#d9a83e',size:'',photo:'photos/looper-lixianglan-shanghai.jpg'},
+ {bar:'Niffler Cafe',name:'罗克福尔青霉素',city:'山西太原，中国',date:'2026.06.18',year:2026,taste:'生蚝叶口感鲜明版',x:63.5,y:35.5,color:'#c9a052',size:'',photo:'photos/niffler-roquefort-penicillin-taiyuan.jpg'},
+ {bar:'麦涩Maise',name:'起泡酒',city:'山西太原，中国',date:'2026.06.18',year:2026,taste:'bartender送的',x:63,y:35.2,color:'#e0d9a3',size:'',photo:'photos/maise-sparkling-taiyuan.jpg'},
+ {bar:'麦涩Maise',name:'瑰丽晋祠',city:'山西太原，中国',date:'2026.06.18',year:2026,taste:'小蝴蝶酒',x:62.7,y:34.8,color:'#6a4a9a',size:'',photo:'photos/maise-guiliJinci-taiyuan.jpg'},
+ {bar:'AMMO',name:'陈醋',city:'山西太原，中国',date:'2026.06.18',year:2026,taste:'一缸醋烈得很',x:63.3,y:34.5,color:'#3a2a1a',size:'',photo:'photos/ammo-aged-vinegar-taiyuan.jpg'},
+ {bar:'AMMO',name:'大白兔奶糖',city:'山西太原，中国',date:'2026.06.18',year:2026,taste:'也可能不是只记得退而求其次了',x:63.6,y:34.2,color:'#e8ddc2',size:'',photo:'photos/ammo-white-rabbit-taiyuan.jpg'},
+ {bar:'交个朋友',name:'檀香&汾酒',city:'山西大同，中国',date:'2026.06.15',year:2026,taste:'非常遗憾没有喝到盎司和前堂',x:63,y:33,color:'#8a6a4a',size:'',photo:'photos/jiaogepengyou-sandalwood-fenjiu-datong.jpg'},
+ {bar:'交个朋友',name:'汾酒特调',city:'山西大同，中国',date:'2026.06.15',year:2026,taste:'菠萝和白酒依旧好朋友',x:62.5,y:33.5,color:'#c9a83e',size:'',photo:'photos/jiaogepengyou-fenjiu-pineapple-datong.jpg'},
+ {bar:'Halo',name:'礼拜一',city:'山西大同，中国',date:'2026.06.15',year:2026,taste:'超难喝',x:63.5,y:32.5,color:'#5a5a6b',size:'',photo:'photos/halo-monday-datong.jpg'},
+ {bar:'deep dive',name:'Xila Monster',city:'西雅图，美国',date:'2026.04.24',year:2026,taste:'酸椰tiki',x:4.2,y:16.8,color:'#a8c26a',size:'',photo:'photos/deep-dive-xila-monster-seattle.jpg'},
+ {bar:'deep dive',name:'Seacy Upon Casterbory',city:'西雅图，美国',date:'2026.04.24',year:2026,taste:'巧克力拉莫斯金菲士',x:3.8,y:17.2,color:'#5a3f2e',size:'',photo:'photos/deep-dive-seacy-upon-casterbory-seattle.jpg'},
+ {bar:'Civility&Unrest',name:'Dry Martini',city:'西雅图，美国',date:'2026.04.08',year:2026,taste:'某酒厂联名干马天尼',x:5.2,y:16,color:'#c9c9b8',size:'',photo:'photos/civility-unrest-dry-martini-seattle.jpg'},
+ {bar:'Civility&Unrest',name:'Tale as Old as Time',city:'西雅图，美国',date:'2026.04.08',year:2026,taste:'烟熏竹炭水',x:5.6,y:16.4,color:'#3a3a3a',size:'',photo:'photos/civility-unrest-tale-as-old-as-time-seattle.jpg'},
+ {bar:'Lab',name:'No.4',city:'台北，中国台湾',date:'2026.03.19',year:2026,taste:'板蓝根',x:79.1,y:47.4,color:'#4a6a8a',size:'',photo:'photos/lab-no4-banlangen-taipei.jpg'},
+ {bar:'Lab',name:'No.3',city:'台北，中国台湾',date:'2026.03.19',year:2026,taste:'珍珠奶茶中药',x:78.9,y:47.6,color:'#6b4a32',size:'',photo:'photos/lab-no3-boba-medicine-taipei.jpg'},
+ {bar:'Underlab',name:'佚名',city:'台北，中国台湾',date:'2026.03.19',year:2026,taste:'某款茶饮',x:79.3,y:47.9,color:'#8a9a5a',size:'',photo:'photos/underlab-unknown-2-taipei.jpg'},
+ {bar:'Underlab',name:'佚名',city:'台北，中国台湾',date:'2026.03.19',year:2026,taste:'上层是红酒',x:79.5,y:48.1,color:'#7a2e3a',size:'',photo:'photos/underlab-unknown-1-taipei.jpg'},
+ {bar:'moonrock',name:'天堂与泥土',city:'台南，中国台湾',date:'2026.03.17',year:2026,taste:'deca joins 粉丝狂喜',x:79.2,y:51.9,color:'#8a6a9a',size:'',photo:'photos/moonrock-heaven-and-earth-tainan.jpg'},
+ {bar:'The Han-Jia Pairing Dinner 酣呷餐酒',name:'艺伎回忆录',city:'台南，中国台湾',date:'2026.03.17',year:2026,taste:'琴酒清酒苦艾三抽走，"我认为martini不苦"遂坠入调酒师温柔乡',x:79,y:52,color:'#6a4a7a',size:'',photo:'photos/hanjia-geisha-memoirs-tainan.jpg'},
+ {bar:'The Han-Jia Pairing Dinner 酣呷餐酒',name:'虫虫大作战',city:'台南，中国台湾',date:'2026.03.17',year:2026,taste:'酸酸大蚂蚁，美味油浸虾',x:78.6,y:52.4,color:'#6f8a4a',size:'',photo:'photos/hanjia-bugs-life-tainan.jpg'},
+ {bar:'The Han-Jia Pairing Dinner 酣呷餐酒',name:'料理鼠王',city:'台南，中国台湾',date:'2026.03.17',year:2026,taste:'普罗旺斯炖菜液体版',x:79.4,y:51.7,color:'#8a5a32',size:'',photo:'photos/hanjia-ratatouille-tainan.jpg'},
+ {bar:'Bar Mood Taipei',name:'花生',city:'台北，中国台湾',date:'2026.03.16',year:2026,taste:'三杯都不够喝',x:78.9,y:47.5,color:'#c9a052',size:'',photo:'photos/bar-mood-peanut-taipei.jpg'},
+ {bar:'Bar Mood Taipei',name:'Mloody Mary',city:'台北，中国台湾',date:'2026.03.16',year:2026,taste:'辣椒酱特供',x:78.8,y:47.4,color:'#a13c2e',size:'',photo:'photos/bar-mood-mloody-mary-taipei.jpg'},
+ {bar:'Bar Mood Taipei',name:'Cucumber',city:'台北，中国台湾',date:'2026.03.16',year:2026,taste:'超清新黄瓜水',x:78.4,y:47.2,color:'#a8c26a',size:'',photo:'photos/bar-mood-cucumber-taipei.jpg'},
+ {bar:'Lab',name:'No.2',city:'台北，中国台湾',date:'2026.03.15',year:2026,taste:'绿色中药',x:79,y:47.5,color:'#4a6b3a',size:'',photo:'photos/lab-no2-green-medicine-taipei.jpg'},
+ {bar:'The Public House',name:'Vanana',city:'台北，中国台湾',date:'2026.03.15',year:2026,taste:'香蕉奶昔冰沙，可能饭比酒好吃',x:78.5,y:48,color:'#d9c26a',size:'',photo:'photos/public-house-vanana-taipei.jpg'},
+ {bar:'To infinity&Beyond',name:'自然开根号',city:'台北，中国台湾',date:'2026.03.15',year:2026,taste:'酸香青草茶',x:79.5,y:48.5,color:'#7a8a4a',size:'',photo:'photos/toinfinity-ziran-kaigenhao-taipei.jpg'},
+ {bar:'To infinity&Beyond',name:'超西瓜立方',city:'台北，中国台湾',date:'2026.03.15',year:2026,taste:'西瓜冰沙',x:80,y:48.2,color:'#d9536a',size:'',photo:'photos/toinfinity-super-watermelon-cube-taipei.jpg'},
+ {bar:'Lab',name:'No.1',city:'台北，中国台湾',date:'2026.03.14',year:2026,taste:'棕色中药',x:79,y:47.3,color:'#6b4a32',size:'',photo:'photos/lab-no1-brown-medicine-taipei.jpg'},
+ {bar:'無',name:'Gimlet',city:'台北，中国台湾',date:'2026.03.14',year:2026,taste:'海鲜面好吃',x:78.7,y:47.8,color:'#7a9a5a',size:'',photo:'photos/wu-emoji-bar-gimlet-taipei.jpg'},
+ {bar:'無',name:'Daiquiri',city:'台北，中国台湾',date:'2026.03.14',year:2026,taste:'吉利',x:78.3,y:47.6,color:'#e0d9c0',size:'',photo:'photos/wu-emoji-bar-daiquiri-taipei.jpg'},
+ {bar:'deep dive',name:'Aeneas & Orkney',city:'西雅图，美国',date:'2026.02.25',year:2026,taste:'永不出错flip',x:4,y:17,color:'#e0c9a3',size:'',photo:'photos/deep-dive-unknown-flip-seattle.jpg'},
+ {bar:'Roquette',name:'Suede Umbrella',city:'西雅图，美国',date:'2026.02.25',year:2026,taste:'其实是Negroni特调，喝的时候没意识到',x:4.5,y:17.5,color:'#a13c2e',size:'',photo:'photos/roquette-suede-umbrella-seattle.jpg'},
+ {bar:'Rob Roy',name:'佚名',city:'西雅图，美国',date:'2026.02.25',year:2026,taste:'咸柠檬',x:5,y:18,color:'#d9c9a3',size:'',photo:'photos/rob-roy-bar-unknown-salty-lemon-seattle.jpg'},
+ {bar:'Rob Roy',name:'Rob Roy',city:'西雅图，美国',date:'2026.02.25',year:2026,taste:'肉桂酸',x:5.5,y:18.5,color:'#8a5a32',size:'',photo:'photos/rob-roy-bar-rob-roy-seattle.jpg'},
+ {bar:'Needle&Threads',name:'No.2',city:'西雅图，美国',date:'2026.02.11',year:2026,taste:'苹果奶昔',x:7,y:14,color:'#a8c26a',size:'',photo:'photos/needle-threads-no2-seattle.jpg'},
+ {bar:'Needle&Threads',name:'No.1',city:'西雅图，美国',date:'2026.02.11',year:2026,taste:'咸爆米花',x:7.5,y:14.5,color:'#d9b56a',size:'',photo:'photos/needle-threads-no1-seattle.jpg'},
+ {bar:'Canon',name:'仙人掌',city:'西雅图，美国',date:'2026.02.11',year:2026,taste:'葡萄汽水',x:6.8,y:13.5,color:'#6a4a8a',size:'',photo:'photos/canon-cactus-seattle.jpg'},
+ {bar:'paper fan',name:'YUZU RICE',city:'西雅图，美国',date:'2026.02.11',year:2026,taste:'牛肉面很好吃',x:7.2,y:13,color:'#c9a83e',size:'',photo:'photos/paper-fan-yuzu-rice-seattle.jpg'},
+ {bar:'Kaisha内场',name:'Negroni',city:'上海，中国',date:'2025.12.23',year:2025,taste:'为了吃血腥玛丽鸡翅而陪衬',x:70,y:44,color:'#a13c2e',size:'',photo:'photos/kaisha-negroni-shanghai.jpg'},
+ {bar:'Kaisha内场',name:'Kaikan Fizz',city:'上海，中国',date:'2025.12.23',year:2025,taste:'乳酸菌饮料',x:69.5,y:44.5,color:'#e0d9c0',size:'',photo:'photos/kaisha-kaikan-fizz-shanghai.jpg'},
+ {bar:'Kaisha内场',name:'YOKOHAMA',city:'上海，中国',date:'2025.12.23',year:2025,taste:'持续草本平衡！',x:70.5,y:43.5,color:'#6f9a5a',size:'',photo:'photos/kaisha-yokohama-shanghai.jpg'},
+ {bar:'Andy Bar',name:'YUZU·白Negroni',city:'河南郑州，中国',date:'2025.12.22',year:2025,taste:'柚子万岁！',x:73,y:38,color:'#c9a83e',size:'',photo:'photos/andybar-yuzu-white-negroni-zhengzhou.jpg'},
+ {bar:'云舍酒匠',name:'佚名',city:'河南郑州，中国',date:'2025.12.22',year:2025,taste:'香香草',x:73.5,y:37.5,color:'#8a9a6a',size:'',photo:'photos/yunshe-unknown-2-zhengzhou.jpg'},
+ {bar:'云舍酒匠',name:'佚名',city:'河南郑州，中国',date:'2025.12.22',year:2025,taste:'不是曼哈顿但是像曼哈顿',x:73.2,y:37.8,color:'#8a4a3a',size:'',photo:'photos/yunshe-unknown-1-zhengzhou.jpg'},
+ {bar:'木酉酒事',name:'Between the Sheet',city:'云南昆明，中国',date:'2025.12.20',year:2025,taste:'橙子烈酒',x:58.5,y:46,color:'#c9752e',size:'',photo:'photos/muyoujiushi-between-the-sheets-kunming.jpg'},
+ {bar:'靖庭',name:'No.2',city:'云南昆明，中国',date:'2025.12.20',year:2025,taste:'茉莉金酒&玫瑰威士忌，居庙堂之高',x:58,y:46.5,color:'#a5678a',size:'',photo:'photos/jingting-no2-kunming.jpg'},
+ {bar:'靖庭',name:'No.1',city:'云南昆明，中国',date:'2025.12.20',year:2025,taste:'盐边柚子酸，超低酒感超丝滑',x:57.7,y:46.3,color:'#c9a83e',size:'',photo:'photos/jingting-no1-kunming.jpg'},
+ {bar:'Collins',name:'口袋里的另一种可能',city:'云南昆明，中国',date:'2025.12.20',year:2025,taste:'超级香干马天尼',x:58.3,y:45.8,color:'#a8ad8a',size:'',photo:'photos/collins-pocket-possibility-kunming.jpg'},
+ {bar:'Collins',name:'藤原Tofu',city:'云南昆明，中国',date:'2025.12.20',year:2025,taste:'豆乳紫苏水',x:58,y:45.5,color:'#8a9a6a',size:'',photo:'photos/collins-fujiwara-tofu-kunming.jpg'},
+ {bar:'GOKU',name:'红',city:'云南昆明，中国',date:'2025.12.20',year:2025,taste:'奶香红色素',x:57.8,y:46.8,color:'#c85a6e',size:'',photo:'photos/goku-hong-kunming.jpg'},
+ {bar:'灰烬',name:'Bee\'s Knee（New Zealand Sheep Milk & Honey Gin）',city:'云南大理，中国',date:'2025.12.18',year:2025,taste:'将在未来刻舟求剑',x:54.5,y:50.7,color:'#d9b56a',size:'',photo:'photos/huijin-bees-knee-dali.jpg'},
+ {bar:'top蛋',name:'归途',city:'云南大理，中国',date:'2025.12.18',year:2025,taste:'爆米花好吃',x:57,y:48.5,color:'#b06a3a',size:'',photo:'photos/topdan-guitu-dali.jpg'},
+ {bar:'灰烬',name:'Last Word（绝对原版）',city:'云南大理，中国',date:'2025.12.18',year:2025,taste:'持续感受平衡！',x:54.7,y:50.3,color:'#6f9a5a',size:'',photo:'photos/huijin-last-word-dali.jpg'},
+ {bar:'灰烬',name:'Paper Plane（Amaro Nonino）',city:'云南大理，中国',date:'2025.12.18',year:2025,taste:'王炸般平衡，从来没爱过所以爱错',x:54.3,y:50.6,color:'#8a4a3a',size:'',photo:'photos/huijin-paper-plane-dali.jpg'},
+ {bar:'灰烬',name:'电气白兰',city:'云南大理，中国',date:'2025.12.18',year:2025,taste:'喝不懂不喝了',x:54.6,y:50.4,color:'#4a6a9a',size:'',photo:'photos/huijin-dianqi-bailan-dali.jpg'},
+ {bar:'灰烬',name:'Gimlet（Hendrick\'s Grand Cabaret）',city:'云南大理，中国',date:'2025.12.17',year:2025,taste:'极品充气与碎冰',x:54.5,y:50.5,color:'#7a9a5a',size:'',photo:'photos/huijin-gimlet-dali.jpg'},
+ {bar:'蘑菇屋',name:'风',city:'云南大理，中国',date:'2025.12.17',year:2025,taste:'不记得了可能是菠萝白酒',x:56.5,y:49,color:'#c9a83e',size:'',photo:'photos/moguwu-feng-dali.jpg'},
+ {bar:'蘑菇屋',name:'舞茸菌',city:'云南大理，中国',date:'2025.12.17',year:2025,taste:'咖啡香蕉烟熏',x:56,y:49.5,color:'#6b4a32',size:'',photo:'photos/moguwu-maitake-dali.jpg'},
+ {bar:'蘑菇屋',name:'石灰菌',city:'云南大理，中国',date:'2025.12.17',year:2025,taste:'姜汤',x:55.5,y:50,color:'#c2924a',size:'',photo:'photos/moguwu-lime-fungus-dali.jpg'},
+ {bar:'two boring',name:'佚名',city:'云南大理，中国',date:'2025.12.16',year:2025,taste:'草莓酸',x:55.5,y:49.5,color:'#c85a6e',size:'',photo:'photos/two-boring-unknown-dali.jpg'},
+ {bar:'two boring',name:'红豆拉莫斯金菲士',city:'云南大理，中国',date:'2025.12.16',year:2025,taste:'甜不辣鸡',x:56,y:50,color:'#a5432e',size:'',photo:'photos/two-boring-red-bean-ramos-fizz-dali.jpg'},
+ {bar:'bar toast',name:'佚名',city:'云南大理，中国',date:'2025.12.15',year:2025,taste:'海盐松子奶油',x:55,y:50,color:'#d9c9a3',size:'',photo:'photos/bar-toast-unknown-dali.jpg'},
+ {bar:'茉莉',name:'佚名',city:'云南大理，中国',date:'2025.12.15',year:2025,taste:'可能是檀香？不记得了',x:63.5,y:46.5,color:'#9c8a6f',size:'',photo:'photos/moli-unknown-sandalwood-dali.jpg'},
+ {bar:'茉莉',name:'曼谷来信',city:'云南大理，中国',date:'2025.12.15',year:2025,taste:'美味香茅草！',x:63,y:47,color:'#8a9a4a',size:'',photo:'photos/moli-bangkok-letter-dali.jpg'},
+ {bar:'茉莉',name:'接骨木普洱茶威士忌',city:'云南大理，中国',date:'2025.12.15',year:2025,taste:'甜茶',x:62.5,y:47.5,color:'#7a5a32',size:'',photo:'photos/moli-elderflower-puer-whiskey-dali.jpg'},
+ {bar:'Bar Leone',name:'无花果叶Negroni',city:'上海，中国',date:'2025.12.13',year:2025,taste:'叶子苦苦苦',x:69.5,y:44,color:'#5a6b3a',size:'',photo:'photos/bar-leone-sh-fig-leaf-negroni-shanghai.jpg'},
+ {bar:'Bar Leone',name:'Kingkong Old Fashion',city:'上海，中国',date:'2025.12.13',year:2025,taste:'巧克力苦苦苦',x:70,y:44.5,color:'#4a3226',size:'',photo:'photos/bar-leone-sh-kingkong-old-fashion-shanghai.jpg'},
+ {bar:'ALOHA',name:'No.N',city:'江苏苏州，中国',date:'2025.12.12',year:2025,taste:'芦荟香蕉',x:72,y:42.5,color:'#8fae5a',size:'',photo:'photos/aloha-no-n-suzhou.jpg'},
+ {bar:'ALOHA',name:'No.5',city:'江苏苏州，中国',date:'2025.12.12',year:2025,taste:'李子葡萄醋',x:72.5,y:42,color:'#7a3f5a',size:'',photo:'photos/aloha-no-5-suzhou.jpg'},
+ {bar:'Canon',name:'佚名',city:'西雅图，美国',date:'2025.10.18',year:2025,taste:'香？不记得了',x:6,y:15.5,color:'#8a7a5a',size:'',photo:'photos/canon-unknown-1-seattle.jpg'},
+ {bar:'Canon',name:'佚名',city:'西雅图，美国',date:'2025.10.18',year:2025,taste:'绵密酸',x:6.5,y:15,color:'#c9a25a',size:'',photo:'photos/canon-unknown-2-seattle.jpg'},
+ {bar:'Phocific Standard Time',name:'Egg Coffee',city:'西雅图，美国',date:'2025.10.09',year:2025,taste:'提拉米苏',x:5.5,y:16.5,color:'#5a3f2e',size:'',photo:'photos/phocific-egg-coffee-seattle.jpg'},
+ {bar:'Phocific Standard Time',name:'Hey Darling',city:'西雅图，美国',date:'2025.10.09',year:2025,taste:'苦瓜酒',x:5,y:16,color:'#6f8a4a',size:'',photo:'photos/phocific-hey-darling-seattle.jpg'},
+ {bar:'sober company',name:'Take a Break',city:'上海，中国',date:'2025.09.03',year:2025,taste:'焙茶绵密薰衣草',x:70,y:44,color:'#6b5a42',size:'',photo:'photos/sober-company-take-a-break-shanghai.jpg'},
+ {bar:'Paal',name:'No.1',city:'上海，中国',date:'2025.08.13',year:2025,taste:'生蚝叶',x:70.5,y:44.5,color:'#6f7d5e',size:'',photo:'photos/paal-no1-unknown-shanghai.jpg'},
+ {bar:'Tribeca',name:'芒果',city:'上海，中国',date:'2025.08.13',year:2025,taste:'无敌美味！',x:71,y:44.5,color:'#d8a23e',size:'',photo:'photos/tribeca-mango-shanghai.jpg'},
+ {bar:'宝物',name:'绿番茄玄米茶',city:'上海，中国',date:'2025.08.13',year:2025,taste:'捣烂 / 呕吐物',x:71,y:44,color:'#78815d',size:'short',photo:'photos/baowu-green-tomato-genmaicha-shanghai.jpg'},
+ {bar:'Swirl',name:'Paris',city:'上海，中国',date:'2025.08.13',year:2025,taste:'葡萄酒鸡尾酒（为陈粒而来）',x:70.5,y:44,color:'#7a3f52',size:'',photo:'photos/swirl-unknown-shanghai.jpg'},
+ {bar:'不是山谷',name:'荔枝特调',city:'海南三亚，中国',date:'2025.07.19',year:2025,taste:'太冷了不想喝',x:59.5,y:61.5,color:'#d9a3b8',size:'',photo:'photos/notavalley-lychee-sanya.jpg'},
+ {bar:'不是山谷',name:'古典',city:'海南三亚，中国',date:'2025.07.19',year:2025,taste:'喝不来',x:60.5,y:62.5,color:'#8a5a32',size:'',photo:'photos/notavalley-old-fashioned-sanya.jpg'},
+ {bar:'不是山谷',name:'新加坡司令',city:'海南三亚，中国',date:'2025.07.19',year:2025,taste:'热带',x:60,y:62,color:'#c85a6e',size:'',photo:'photos/notavalley-singapore-sling-sanya.jpg'},
+ {bar:'石室·冰室',name:'北凉',city:'甘肃敦煌，中国',date:'2025.06.30',year:2025,taste:'草本烟熏单宁豆蔻全领域展开',x:35.5,y:22.5,color:'#4a3d2e',size:'',photo:'photos/shishi-bingshi-beiliang-dunhuang.jpg'},
+ {bar:'石室·冰室',name:'西夏',city:'甘肃敦煌，中国',date:'2025.06.30',year:2025,taste:'玄米茶朗姆酸',x:35,y:22,color:'#8a7d4a',size:'',photo:'photos/shishi-bingshi-xixia-dunhuang.jpg'},
+ {bar:'suzu bar',name:'Doctor S 铃木',city:'上海，中国',date:'2025.06.25',year:2025,taste:'梅子草药',x:69.5,y:42.5,color:'#6b3f52',size:'',photo:'photos/suzu-bar-doctor-s-shanghai.jpg'},
+ {bar:'suzu bar',name:'SUZU Martini No.2',city:'上海，中国',date:'2025.06.25',year:2025,taste:'香香西柚苦苦',x:70.5,y:43,color:'#c9a25a',size:'',photo:'photos/suzu-bar-martini-no2-shanghai.jpg'},
+ {bar:'suzu bar',name:'Morelia',city:'上海，中国',date:'2025.06.25',year:2025,taste:'发酵番茄',x:70,y:43.5,color:'#a5432e',size:'',photo:'photos/suzu-bar-morelia-shanghai.jpg'},
+ {bar:'Pony Up',name:'Rocket Man',city:'上海，中国',date:'2025.05.26',year:2025,taste:'黑蒜肉骨茶喝不出来，但三明治实在美味',x:69,y:42.5,color:'#5a4632',size:'',photo:'photos/pony-up-rocket-man-shanghai.jpg'},
+ {bar:'四和',name:'王熙凤',city:'上海，中国',date:'2025.05.26',year:2025,taste:'酸辣',x:69.5,y:43,color:'#a13c2e',size:'',photo:'photos/sihe-wangxifeng-shanghai.jpg'},
+ {bar:'Bar Leone',name:'Olive Oil Sour',city:'香港，中国',date:'2025.04.26',year:2025,taste:'诡异肉豆蔻，意大利肉丸好吃',x:75.5,y:50.5,color:'#8a8f4a',size:'',photo:'photos/bar-leone-olive-oil-sour-hongkong.jpg'},
+ {bar:'The Savory Project',name:'Biryani',city:'香港，中国',date:'2025.04.26',year:2025,taste:'鲜咸如COA',x:75,y:51,color:'#c08a3e',size:'',photo:'photos/savory-project-biryani-hongkong.jpg'},
+ {bar:'Penicillin',name:'Wear No Evil',city:'香港，中国',date:'2025.04.24',year:2025,taste:'香水',x:75,y:50,color:'#a67ab8',size:'',photo:'photos/penicillin-wear-no-evil-hongkong.jpg'},
+ {bar:'Penicillin',name:'One Penicillin, One Tree',city:'香港，中国',date:'2025.04.24',year:2025,taste:'美味草莓酸奶昔',x:75.5,y:49.5,color:'#c2597a',size:'',photo:'photos/penicillin-one-tree-hongkong.jpg'},
+ {bar:'Quinary',name:'Quinary Sour',city:'香港，中国',date:'2025.04.24',year:2025,taste:'鱿鱼丝苦',x:74,y:51,color:'#8a6a3e',size:'',photo:'photos/quinary-sour-hongkong.jpg'},
+ {bar:'Quinary',name:'Gents O\'Clock',city:'香港，中国',date:'2025.04.24',year:2025,taste:'烟熏木鱼花',x:74.5,y:50.5,color:'#5a4a3a',size:'',photo:'photos/quinary-gents-oclock-hongkong.jpg'},
+ {bar:'COA',name:'Bitter Melon Collins',city:'香港，中国',date:'2025.04.24',year:2025,taste:'清爽苦酸',x:75,y:52,color:'#7a9a5a',size:'',photo:'photos/coa-hk-bitter-melon-collins-hongkong.jpg'},
+ {bar:'COA',name:'Smacked Cucumber',city:'香港，中国',date:'2025.04.24',year:2025,taste:'惊为天人酱油拌黄瓜',x:75.5,y:51.5,color:'#6f8a4a',size:'',photo:'photos/coa-hk-smacked-cucumber-hongkong.jpg'},
+ {bar:'The St. Regis Bar',name:'Bloody Mary - New York',city:'澳门，中国',date:'2025.04.21',year:2025,taste:'以为是蔬果汤，实则不然',x:72,y:51,color:'#b33b30',size:'',photo:'photos/st-regis-bloody-mary-new-york-macau.jpg'},
+ {bar:'The St. Regis Bar',name:'Macao Egg Tart',city:'澳门，中国',date:'2025.04.21',year:2025,taste:'三口无',x:72.5,y:50.5,color:'#c89952',size:'',photo:'photos/st-regis-macao-egg-tart-macau.jpg'},
+ {bar:'The St. Regis Bar',name:'Smoky Martini',city:'澳门，中国',date:'2025.04.21',year:2025,taste:'高级苦苦苦',x:71.5,y:50,color:'#6b7255',size:'',photo:'photos/st-regis-smoky-martini-macau.jpg'},
+ {bar:'The St. Regis Bar',name:'Strawberry Fields',city:'澳门，中国',date:'2025.04.21',year:2025,taste:'香甜极品',x:73,y:49.5,color:'#c7556c',size:'',photo:'photos/st-regis-strawberry-fields-macau.jpg'},
+ {bar:'EPIC',name:'Espresso Martini',city:'上海，中国',date:'2025.04.01',year:2025,taste:'咖啡桂花马天尼',x:67.5,y:44.5,color:'#765b42',size:'',photo:'photos/epic-unknown-shanghai.jpg'},
+ {bar:'木质天堂 Wooden Paradise',name:'特洛伊',city:'上海，中国',date:'2025.03.08',year:2025,taste:'苦苦苦',x:70.5,y:43.5,color:'#645644',size:'',photo:'photos/wooden-paradise-unknown-shanghai.jpg'},
+ {bar:'Gallows Humor',name:'Chasing Vermeer',city:'上海，中国',date:'2025.03.08',year:2025,taste:'蓝纹奶酪橄榄草莓椰子澄清版',x:69.5,y:43.5,color:'#d49a7a',size:'',photo:'photos/gallows-humor-chasing-vermeer-shanghai.jpg'},
+ {bar:'Psycho',name:'西西里的美丽传说',city:'上海，中国',date:'2025.03.28',year:2025,taste:'甜苦，类似尼格罗尼',x:69,y:44.5,color:'#a74f35',size:'',photo:'photos/psycho-malena-shanghai.jpg'},
+ {bar:'COA',name:'Pepper Smash',city:'上海，中国',date:'2025.03.28',year:2025,taste:'美味辣椒香罗勒汤',x:68.5,y:45,color:'#8c8a45',size:'',photo:'photos/coa-pepper-smash-shanghai.jpg'},
+ {bar:'Bar Renaissance',name:'佚名',city:'上海，中国',date:'2025.03.28',year:2025,taste:'檀香、沉香、苦苦苦',x:68,y:44,color:'#594a35',size:'',photo:'photos/bar-renaissance-unknown-shanghai.jpg'},
+ {bar:'LIONWALK 狮子漫步',name:'不死鸟',city:'四川成都，中国',date:'2025.02.19',year:2025,taste:'热带火焰',x:62,y:45,color:'#d46b35',size:'',photo:'photos/lionwalk-phoenix-chengdu.jpg'},
+ {bar:'高窗 Clevestory',name:'金毛的洗澡水',city:'四川成都，中国',date:'2025.02.19',year:2025,taste:'渣男故事来的',x:61,y:46,color:'#b99866',size:'',photo:'photos/clevestory-golden-retriever-bathwater-chengdu.jpg'},
+ {bar:'TAG隔壁字母圈酒吧',name:'菱形缚',city:'四川成都，中国',date:'2025.02.15',year:2025,taste:'樱桃酸',x:62,y:44,color:'#b23a4a',size:'',photo:'photos/tag-diamond-bind-chengdu.jpg'},
+ {bar:'TAG隔壁字母圈酒吧',name:'龟甲缚',city:'四川成都，中国',date:'2025.02.15',year:2025,taste:'热带tiki',x:62.5,y:44.5,color:'#c98a4a',size:'',photo:'photos/tag-tortoise-shell-bind-chengdu.jpg'},
+ {bar:'KAYA REGGAE BAR',name:'Kaya',city:'桂林阳朔，中国',date:'2025.02.09',year:2025,taste:'热带雷鬼',x:68,y:48,color:'#ba8a44',size:'',photo:'photos/kaya-yangshuo.jpg'},
+ {bar:'The Tuxedo',name:'ChatGPT Gimlet',city:'上海，中国',date:'2025.01.02',year:2025,taste:'酸酸香香',x:69.5,y:44,color:'#98a963',size:'',photo:'photos/the-tuxedo-chatgpt-gimlet-shanghai.jpg'},
+ {bar:'The Tuxedo',name:'Tuxedo #310',city:'上海，中国',date:'2025.01.02',year:2025,taste:'干',x:69,y:44.5,color:'#9f8964',size:'',photo:'photos/the-tuxedo-310-shanghai.jpg'},
+ {bar:'The Tuxedo',name:'Michelada',city:'上海，中国',date:'2025.01.02',year:2025,taste:'咸鲜酸辣鸡尾酒，鸡尾酒大门朝我开启。',x:70,y:45.5,color:'#a44932',size:'',photo:'photos/the-tuxedo-michelada-shanghai.jpg'},
+ {bar:'泊未 Bowie',name:'Olympic',city:'上海，中国',date:'2025.01.01',year:2025,taste:'干邑打我',x:70,y:45,color:'#805c40',size:'',photo:'photos/bowie-olympic-shanghai.jpg'},
+ {bar:'魔女喝喝酒集（上海南站店）',name:'冰糖葫芦',city:'上海，中国',date:'2025.01.01',year:2025,taste:'冰糖葫芦',x:70.5,y:44.5,color:'#c0433a',size:'',photo:'photos/witchdrinkdrink-candied-hawthorn-shanghai.jpg'},
+ {bar:'佚店',name:'国风咖啡',city:'上海，中国',date:'2025.01.01',year:2025,taste:'美酒加咖啡～',x:70.5,y:45,color:'#6b4a35',size:'',photo:'photos/unknown-guofeng-coffee-shanghai.jpg'},
+ {bar:'BLCOHOL',name:'三杯醋',city:'上海，中国',date:'2024.12.31',year:2024,taste:'老板人很好！但是店已经换地址了',x:69.5,y:43,color:'#9c7a3e',size:'',photo:'photos/blcohol-three-cup-vinegar-shanghai.jpg'},
+ {bar:'地理学家',name:'致爱丽丝',city:'上海，中国',date:'2024.12.31',year:2024,taste:'巧克力风味香精酒',x:71.5,y:44.5,color:'#8a6fa0',size:'',photo:'photos/geographer-unknown-shanghai.jpg'},
+ {bar:'不误正夜',name:'佚名',city:'上海，中国',date:'2024.12.31',year:2024,taste:'果汁酒',x:68,y:45.5,color:'#c76b4a',size:'',photo:'photos/buwuzhengye-unknown-shanghai.jpg'},
+ {bar:'EA·Kitchen',name:'Aperol Sunset + Daiquiri + Whiskey Sour',city:'上海，中国',date:'2024.10.06',year:2024,taste:'蚕豆好吃',x:71,y:45.5,color:'#c17b3e',size:'',photo:'photos/ea-kitchen-aperol-daiquiri-whiskey-sour-shanghai.jpg'},
+ {bar:'佚店',name:'Negroni + Americano',city:'上海，中国',date:'2024.10.06',year:2024,taste:'永世不喝金巴利',x:69.5,y:45,color:'#a13c2e',size:'',photo:'photos/unknown-bar-negroni-americano-shanghai.jpg'},
+ {bar:'佚店',name:'佚名',city:'上海，中国',date:'2024.10.06',year:2024,taste:'红枣Negroni',x:70,y:44.5,color:'#7a3328',size:'',photo:'photos/unknown-bar-jujube-negroni-shanghai.jpg'},
+ {bar:'T2 lounge bar·筵',name:'佚名',city:'上海，中国',date:'2024.10.06',year:2024,taste:'香瓜酒',x:68.5,y:44.5,color:'#a9b04a',size:'',photo:'photos/t-squared-melon-shanghai.jpg'},
+ {bar:'Elixir·旖Whiskey Bar',name:'佚名',city:'上海，中国',date:'2024.09.06',year:2024,taste:'出自四和前任调酒师Rain之手，但这杯比当时同一杯更好喝',x:70.5,y:43.5,color:'#b8563a',size:'',photo:'photos/elixir-strawberry-whiskey-sour-shanghai.jpg'},
+ {bar:'Elixir·旖Whiskey Bar',name:'传教士的陨落',city:'上海，中国',date:'2024.09.06',year:2024,taste:'薄荷叶危机',x:70.5,y:44,color:'#5f7a52',size:'',photo:'photos/elixir-missionarys-downfall-shanghai.jpg'},
+ {bar:'女子饮酒社',name:'Eve 伊夫',city:'上海，中国',date:'2024.05.18',year:2024,taste:'波本与甜香绝配',x:68.5,y:43,color:'#b77b53',size:'',photo:'photos/womens-drinking-club-eve-shanghai.jpg'},
+ {bar:'四和',name:'佚名',city:'上海，中国',date:'2024.04.06',year:2024,taste:'草莓威士忌酸',x:69,y:43,color:'#b96779',size:'',photo:'photos/sihe-unknown-shanghai.jpg'}
+];
+const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function card(d){return `<div class="micro">${esc(d.date)} · ${esc(d.city)}</div><div class="drink">${esc(d.name)}</div><div class="bar">${esc(d.bar)}</div>${d.type?`<div class="drink-type">${esc(d.type)}</div>`:''}<div class="taste">${esc(d.taste)}</div>`}
+function select(i){const d=drinks[i];document.querySelector('#feature').innerHTML=card(d);document.querySelector('#mapLabel').textContent=d.city.toUpperCase();document.querySelectorAll('.pin').forEach((p,n)=>p.classList.toggle('active',n===i));}
+document.querySelector('#pins').innerHTML=drinks.map((d,i)=>`<button class="pin" aria-label="${esc(d.name)}" data-i="${i}" style="left:${d.x}%;top:${d.y}%"></button>`).join('');
+document.querySelectorAll('.pin').forEach(p=>p.onclick=()=>select(+p.dataset.i)); select(0);
+document.querySelector('#drinkCount').textContent=String(drinks.length).padStart(2,'0');document.querySelector('#cityCount').textContent=String(new Set(drinks.map(d=>d.city)).size).padStart(2,'0');
+const pd=d=>{const[y,m,day]=d.date.split('.').map(Number);return{y,m,day}};
+let chartLevel='year',chartYear=null,chartMonth=null;
+function dayBlockHTML(y,m,day){const dayDrinks=drinks.filter(d=>{const p=pd(d);return p.y===y&&p.m===m&&p.day===day});const dt=`${y}.${String(m).padStart(2,'0')}.${String(day).padStart(2,'0')}`;const cities=[...new Set(dayDrinks.map(d=>d.city))].join(' / ');return `<div class="day-block"><div class="day-head"><span class="date">${dt}</span><span class="day-cities">${esc(cities)}</span></div><div class="day-items">${dayDrinks.map(d=>`<article class="day-item"><span class="name">${esc(d.name)}</span><span class="bar">${esc(d.bar)}</span><p>${esc(d.taste)}</p></article>`).join('')}</div></div>`}
+function renderChart(){
+  const barsEl=document.querySelector('#chartBars'),titleEl=document.querySelector('#chartTitle'),backEl=document.querySelector('#chartBack'),listEl=document.querySelector('#chartDayList');
+  listEl.innerHTML='';
+  if(chartLevel==='year'){
+    backEl.style.display='none';
+    titleEl.textContent='按年查看 · 点击柱子看月份';
+    const years=[...new Set(drinks.map(d=>pd(d).y))].sort((a,b)=>a-b);
+    const counts=years.map(y=>drinks.filter(d=>pd(d).y===y).length);
+    const max=Math.max(...counts,1);
+    barsEl.innerHTML=years.map((y,i)=>`<button class="bar-col" data-y="${y}"><span class="bar-val">${counts[i]}</span><span class="bar-fill" style="height:${counts[i]/max*100}%"></span><span class="bar-label">${y}</span></button>`).join('');
+    barsEl.querySelectorAll('.bar-col').forEach(el=>el.onclick=()=>{chartYear=+el.dataset.y;chartLevel='month';renderChart()});
+  }else if(chartLevel==='month'){
+    backEl.style.display='inline-block';
+    titleEl.textContent=`${chartYear} 年 · 点击柱子看当天`;
+    const counts=[];for(let m=1;m<=12;m++)counts.push(drinks.filter(d=>{const p=pd(d);return p.y===chartYear&&p.m===m}).length);
+    const max=Math.max(...counts,1);
+    barsEl.innerHTML=counts.map((c,i)=>`<button class="bar-col${c?'':' empty'}" data-m="${i+1}"${c?'':' disabled'}><span class="bar-val">${c||''}</span><span class="bar-fill" style="height:${c/max*100}%"></span><span class="bar-label">${i+1}月</span></button>`).join('');
+    barsEl.querySelectorAll('.bar-col:not(.empty)').forEach(el=>el.onclick=()=>{chartMonth=+el.dataset.m;chartLevel='day';renderChart()});
+  }else if(chartLevel==='day'){
+    backEl.style.display='inline-block';
+    titleEl.textContent=`${chartYear}.${String(chartMonth).padStart(2,'0')} · 点击柱子看酒单`;
+    const daysInMonth=new Date(chartYear,chartMonth,0).getDate();
+    const counts=[];for(let day=1;day<=daysInMonth;day++)counts.push(drinks.filter(d=>{const p=pd(d);return p.y===chartYear&&p.m===chartMonth&&p.day===day}).length);
+    const max=Math.max(...counts,1);
+    barsEl.innerHTML=counts.map((c,i)=>`<button class="bar-col${c?'':' empty'}" data-d="${i+1}"${c?'':' disabled'}><span class="bar-val">${c||''}</span><span class="bar-fill" style="height:${c/max*100}%"></span><span class="bar-label">${i+1}</span></button>`).join('');
+    barsEl.querySelectorAll('.bar-col:not(.empty)').forEach(el=>el.onclick=()=>{listEl.innerHTML=dayBlockHTML(chartYear,chartMonth,+el.dataset.d)});
+  }
+}
+document.querySelector('#chartBack').onclick=()=>{if(chartLevel==='day')chartLevel='month';else if(chartLevel==='month')chartLevel='year';renderChart()};
+renderChart();
+document.querySelector('#galleryList').innerHTML=drinks.map(d=>`<article class="card" tabindex="0"><div class="photo ${d.size}" style="--photo:${d.color}"><img src="${esc(d.photo||'')}" alt="${esc(d.name)}" onerror="this.remove()"></div><div class="card-text"><div class="city">${esc(d.city)} · ${esc(d.date)}</div><h2>${esc(d.name)}</h2><div class="micro">${esc(d.bar)}</div>${d.type?`<div class="drink-type">${esc(d.type)}</div>`:''}<p>${esc(d.taste)}</p></div></article>`).join('');
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(e=>e.classList.remove('active'));b.classList.add('active');document.querySelector('#'+b.dataset.view).classList.add('active')});
+</script></body></html>
